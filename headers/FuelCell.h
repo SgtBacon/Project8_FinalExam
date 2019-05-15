@@ -19,6 +19,24 @@ class FuelCell {
                 return rod.at(rod.size() - 1).PowerOut();    //Return Power Output
             }
         }
+        operator<(FuelCell fc) {
+            if (rod.size() > fc.rod.size())
+                return true;
+            else
+                return false;
+        }
+        operator>(FuelCell fc) {
+            if (rod.size() < fc.rod.size())
+                return true;
+            else
+                return false;
+        }
+        operator=(FuelCell fc) {
+            if (rod.size() == fc.rod.size())
+                return true;
+            else
+                return false;
+        }
         FuelCell() {
             o_size = 10;
             rod = std::vector<Pellet>(10);
