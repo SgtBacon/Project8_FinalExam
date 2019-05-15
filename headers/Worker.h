@@ -14,7 +14,7 @@ public:
     Worker();
     Worker(string n, string jobT);
     string getName();
-    void Remove_FuelCell(FuelCell FC);
+    void Remove_FuelCell(FuelCell FC, Reactor newReactor);
     void Add_FuelCell(Reactor newReactor);
 
 

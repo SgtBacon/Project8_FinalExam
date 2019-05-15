@@ -49,5 +49,15 @@ class Reactor {
                 assembly.at(i) = FuelCell(num, pwr);
             }
         }
+        void removeCell(Reactor newReactor){
+            for(int i=0; i < assembly.size(); i++){
+                if(newReactor.assembly.at(i).rod.empty())
+                    newReactor.assembly.pop_back();
+                    }
+                else{
+                    return;
+                    }
+            }
+        }
 
 };
