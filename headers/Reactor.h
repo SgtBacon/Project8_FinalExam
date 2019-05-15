@@ -12,6 +12,7 @@ class Reactor {
         // std::vector<FuelCell> getAssembly() {
         //     return assembly;
         // }
+
         int get_cd() {
             return countdown;
         }
@@ -50,7 +51,7 @@ class Reactor {
             }
         }
         void removeCell(Reactor newReactor){
-            for(int i=0; i < assembly.size(); i++){
+            for(int i=0; i < newReactor.assembly.size(); i++){
                 if(newReactor.assembly.at(i).rod.empty()){
                     newReactor.assembly.pop_back();
                     }

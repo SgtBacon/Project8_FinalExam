@@ -5,7 +5,8 @@ int main() {
     Worker DiversityHire;
     srand(time(NULL));
     int dc;
-    int i;
+    int i = 0;
+    int kilowatts;
 
     std::cout << "Constructing Nuclear Reactor" << std::endl;
     Reactor test = Reactor();
@@ -16,16 +17,13 @@ int main() {
     std::cout << "Fuel Cell 5 compromised\n" << "Reactor contains " << test.assembly.size() << " Fuel Cells." << std::endl;
 
     std::cout << "\nFuel Cell 1 contains " << test.assembly.at(0).rod.size() << " Pellets." << std::endl;
-    for (i = 0; test.assembly.at(0).rod.empty() != true; i++) {
+    while (!test.assembly.at(0).rod.empty()) {
+        std::cout << "Loop iteration # " << i + 1 << std::endl;
         dc = rand() % 20 + 1;
-        if (i < 4) {
-            test.assembly.at(i).decay(dc);
-            std::cout << dc << std::endl;
-        }
-        else
-            break;
+        kilowatts += test.assembly.at(0).decay(dc);
+        i++;
     }
-    std::cout << "It took " << i << " calls of decay() to empty Fuel Cell 1.\nThis produced " << 45 * i << " watts.\n" << std::endl;
+    std::cout << "It took " << i << " calls of decay() to empty Fuel Cell 1.\nThis produced " << (45 * i) / 1000 << " kilowatts.\n" << std::endl;
     while (!test.assembly.empty()) {
         test.assembly.pop_back();
     }
