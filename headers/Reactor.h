@@ -8,7 +8,7 @@ class Reactor {
         std::vector<FuelCell> assembly;
         double KW;
     public:
-        std::vector getAssembly() {
+        std::vector<FuelCell> getAssembly() {
             return assembly;
         }
         int get_cd() {
