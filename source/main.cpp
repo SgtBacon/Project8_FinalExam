@@ -18,7 +18,7 @@ int main() {
     std::cout << "\nFuel Cell 1 contains " << test.assembly.at(0).rod.size() << " Pellets." << std::endl;
     for (i = 0; test.assembly.at(0).rod.empty() != true; i++) {
         dc = rand() % 20 + 1;
-        if (i < 5) {
+        if (i < 4) {
             test.assembly.at(i).decay(dc);
             std::cout << dc << std::endl;
         }
