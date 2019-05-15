@@ -1,12 +1,21 @@
-#ifndef _PELLET_H_
-#define _PELLET_H_
+#include <stdlib.h>
+#include <time.h>
 
 class Pellet {
-private:
-
-public:
-
-
+    private:
+        int Power;  //Measured in Watt. Reactor produces Kilowatt/Hours = (Watts * Hours)/1000
+                    //Also used to determine size of reactor explosion
+    public:
+        int PowerOut() {
+            return Power;
+        }
+        Pellet() {
+            Power = 45;
+        }
+        Pellet(int pwr) {
+            if (pwr < 0) {
+                Power = 45;
+            }
+            Power = pwr;
+        }
 };
-
-#endif

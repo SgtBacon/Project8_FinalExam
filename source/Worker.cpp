@@ -1,5 +1,8 @@
 #include "Worker.h"
 #include "Reactor.h"
+#include "FuelCell.h"
+#include "Pellet.h"
+
 Worker::Worker(){
     name = "Captain Price";
     jobTitle = "Vault-Tech Representative";
