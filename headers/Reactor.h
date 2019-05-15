@@ -1,6 +1,7 @@
 #include "FuelCell.h"
 #include <iostream>
 #include <vector>
+#include <queue>
 
 class Reactor {
     private:
