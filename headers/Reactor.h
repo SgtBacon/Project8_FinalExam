@@ -54,7 +54,7 @@ class Reactor {
                 if(newReactor.assembly.at(i).rod.empty()){
                     newReactor.assembly.pop_back();
                     }
-                else{
+                else {
                     return;
                     }
             }
