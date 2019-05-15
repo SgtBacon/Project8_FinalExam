@@ -17,6 +17,8 @@ int main() {
     std::cout << "Fuel Cell 5 compromised\n" << "Reactor contains " << test.assembly.size() << " Fuel Cells." << std::endl;
 
     std::cout << "\nFuel Cell 1 contains " << test.assembly.at(0).rod.size() << " Pellets." << std::endl;
+    test.assembly.push_back(FuelCell());
+    std::cout << "Reactor has " << test.assembly.size() << " fuel cells." << std::endl;
     while (!test.assembly.at(0).rod.empty()) {
         std::cout << "Loop iteration # " << i + 1 << std::endl;
         dc = rand() % 20 + 1;

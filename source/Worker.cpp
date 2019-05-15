@@ -12,8 +12,8 @@ Worker::Worker(string n, string jobT){
 void Worker::Remove_FuelCell(FuelCell FC, Reactor newReactor){      //A worker can remove a fuel cell, taking in the empty fuel cell as it's parameter so it 
     newReactor.removeCell(newReactor);                                       //knows which one to remove
 }
-void Worker::Add_FuelCell(Reactor newReactor){         //A worker can add a fuel cell, creating one within the function, and then adding it to the vector of 
-    FuelCell NewCell;
+void Worker::Add_FuelCell(Reactor& newReactor){         //A worker can add a fuel cell, creating one within the function, and then adding it to the vector of 
+    FuelCell NewCell = FuelCell();
     newReactor.addCell(NewCell);
 
 }
