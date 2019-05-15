@@ -18,13 +18,17 @@ int main() {
     std::cout << "\nFuel Cell 1 contains " << test.getAssembly().at(0).rod.size() << " Pellets." << std::endl;
     for (i = 0; test.getAssembly().at(0).rod.empty() != true; i++) {
         dc = rand() % 20 + 1;
-        test.getAssembly().at(0).decay(dc);
+        if (i < 5) {
+            test.getAssembly().at(i).decay(dc);
+            std::cout << dc << std::endl;
+        }
+        else
+            break;
     }
     std::cout << "It took " << i << " calls of decay() to empty Fuel Cell 1.\nThis produced " << 45 * i << " watts.\n" << std::endl;
-    test.getAssembly().pop_back();
-    test.getAssembly().pop_back();
-    test.getAssembly().pop_back();
-    test.getAssembly().pop_back();
+    while (!test.getAssembly().empty()) {
+        test.getAssembly().pop_back();
+    }
     std::cout << test.getAssembly().size() << std::endl;
     for (int h = 0; h < 60; h++) {
         test.Meltdown(test.getAssembly());
