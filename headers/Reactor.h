@@ -5,12 +5,12 @@
 class Reactor {
     private:
         int countdown = 60;
-        std::vector<FuelCell> assembly;
         double KW;
     public:
-        std::vector<FuelCell> getAssembly() {
-            return assembly;
-        }
+        std::vector<FuelCell> assembly;
+        // std::vector<FuelCell> getAssembly() {
+        //     return assembly;
+        // }
         int get_cd() {
             return countdown;
         }
