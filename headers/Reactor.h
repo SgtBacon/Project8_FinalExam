@@ -5,8 +5,9 @@
 class Reactor {
     private:
         int countdown = 60;
+        std::vector<FuelCell> assembly;
+        double KW;
     public:
-        std::vector<FuelCell> assembly; //Vector is public so that the Worker class can modify the contents
         int get_cd() {
             return countdown;
         }
@@ -29,6 +30,9 @@ class Reactor {
                 countdown = 60;
             }
             Explode(get_cd());
+        }
+        void addCell(FuelCell fc) {
+            assembly.push_back(fc);
         }
         Reactor() {
             assembly = std::vector<FuelCell>(5);
