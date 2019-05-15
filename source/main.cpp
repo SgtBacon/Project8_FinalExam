@@ -10,7 +10,7 @@ int main() {
     std::cout << "Constructing Nuclear Reactor" << std::endl;
     Reactor test = Reactor();
     std::cout << "Reactor built." << std::endl;
-
+    Jay.Add_FuelCell();
     std::cout << "Reactor contains " << test.assembly.size() << " Fuel Cells." << std::endl;
     test.assembly.pop_back();
     std::cout << "Fuel Cell 5 compromised\n" << "Reactor contains " << test.assembly.size() << " Fuel Cells." << std::endl;
