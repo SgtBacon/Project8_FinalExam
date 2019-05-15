@@ -1,7 +1,8 @@
 #include <iostream>
-#include <Reactor.h>
+#include "Worker.h"
 
 int main() {
+    Worker Jay;
     srand(time(NULL));
     int dc;
     int i;
