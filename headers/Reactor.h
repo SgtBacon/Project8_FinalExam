@@ -8,6 +8,9 @@ class Reactor {
         std::vector<FuelCell> assembly;
         double KW;
     public:
+        std::vector getAssembly() {
+            return assembly;
+        }
         int get_cd() {
             return countdown;
         }
