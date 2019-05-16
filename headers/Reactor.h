@@ -60,9 +60,12 @@ class Reactor {
             std::cout << "done\n";
         }
         void removeCell(Reactor newReactor){
-            for(int i = 0; i < newReactor.assembly.size(); i++){
-                if(newReactor.assembly.at(i).rod.empty()){
-                    newReactor.assembly.erase(assembly.begin() + i - 1);
+            for(int i = 0; i < newReactor.assembly[0].get_osize(); i++){
+                std::cout << "Entered loop" << std::endl;
+                if(newReactor.assembly[i].rod.empty()){
+                    //newReactor.assembly.erase(assembly.begin() + i);
+                    std::vector<Pellet> temp = std::vector<Pellet>(newReactor.assembly[i].rod.size());
+                    temp.swap(newReactor.assembly[i].rod);
                     std::cout << "removed an empty cell" << std::endl;
                     break;
                     }

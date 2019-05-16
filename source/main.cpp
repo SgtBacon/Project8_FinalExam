@@ -66,7 +66,7 @@ int main() {
         std::cout << "Worker will be ready in " << 900 - DiversityHire.cd << " loop iterations" << std::endl;
     }
     DiversityHire.cd = 900;
-    for (int i = 0; i <= test.assembly[0].get_osize(); i++) {
+    for (int i = 0; i < test.assembly[0].get_osize(); i++) {
         test.assembly[0].rod.erase(test.assembly[0].rod.begin() + i);
         std::cout << "Pellets in fuel rod: " << test.assembly[0].rod.size() << std::endl;
     }
