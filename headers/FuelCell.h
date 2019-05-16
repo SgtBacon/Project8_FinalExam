@@ -15,10 +15,10 @@ class FuelCell {
             std::cout << check << std::endl;
             std::cout << dc << std::endl;
             if (check == dc && this->rod.empty() == false) {
-                std::cout << "Calling pop_back()" << std::endl;
+                //std::cout << "Calling pop_back()" << std::endl;
                 rod.pop_back();
             }
-            std::cout << "The size of the rod is: " << this->rod.size() << std::endl;
+            //std::cout << "The size of the rod is: " << this->rod.size() << std::endl;
             if (this->rod.size() > 0)
                 return rod.at(0).PowerOut();    //Return Power Output
             else
