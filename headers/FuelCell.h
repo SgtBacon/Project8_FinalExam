@@ -15,8 +15,6 @@ class FuelCell {
         //Postconditions: Power value stored in Pellet 
         int decay(int dc) {
             int check = rand() % 19;
-            std::cout << check << std::endl;
-            std::cout << dc << std::endl;
             if (check == dc && this->rod.empty() == false) {
                 rod.pop_back();
             }
