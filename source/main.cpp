@@ -6,6 +6,7 @@ int main() {
     srand(time(NULL));
     int dc;
     int i = 1;
+    int j = 1;
     int kilowatts;
 
     // std::cout << "Constructing Nuclear Reactor" << std::endl;
@@ -20,30 +21,37 @@ int main() {
     int powercount;
     int pelletcount;
 
-    std::cout << "Simulating nuclear reactor\nHow many fuel cells would you like in the reactor?" << std::endl;
-    std::cin >> rodcount;
-    std::cout << "\nHow much power does each fuel rod produce?" << std::endl;
-    std::cin >> powercount;
-    std::cout << "\nHow many pellets are in each fuel rod?" << std::endl;
-    std::cin >> pelletcount;
+    // std::cout << "Simulating nuclear reactor\nHow many fuel cells would you like in the reactor?" << std::endl;
+    // std::cin >> rodcount;
+    // std::cout << "\nHow much power does each fuel rod produce?" << std::endl;
+    // std::cin >> powercount;
+    // std::cout << "\nHow many pellets are in each fuel rod?" << std::endl;
+    // std::cin >> pelletcount;
 
     std::cout << "Flag 1" << std::endl;
-    Reactor test = Reactor(rodcount, pelletcount, powercount);
+    //Reactor test = Reactor(rodcount, pelletcount, powercount);
+    Reactor test = Reactor(10, 10, 10);
     std::cout << "Flag 2" << std::endl;
 
     //std::cout << "\nFuel Cell 1 contains " << test.assembly.at(0).rod.size() << " Pellets." << std::endl;
     test.assembly.push_back(FuelCell());
     std::cout << "Reactor has " << test.assembly.size() << " fuel cells." << std::endl;
+    std::cout << "Power per pellet: " << test.assembly[0].rod.at(0).PowerOut() << std::endl;
     for (int loop = 0; loop < (test.assembly.at(0).get_osize() * 250) - 1; loop++) {
         //std::cout << "Loop iteration # " << i << std::endl;
         if (test.assembly[0].rod.empty() == true) {
             std::cout << "Your reactor ran out of fuel" << std::endl;
             break;
         }
-        test.assembly[0].decay(i, 0);
+        else if (test.assembly[0].rod.size() > 0) {
+            //std::cout << "Calling decay()" << std::endl;
+            test.assembly[0].decay(i);
+        }
         i++;
+        j++;
+        i = i % 20;
     }
-    std::cout << "It took " << i << " calls of decay() to empty Fuel Cell 1.\nThis produced " << (test.assembly.at(0).rod.at(0).PowerOut() * i) / 1000 << " kilowatts.\n" << std::endl;
+    std::cout << "It took " << j << " calls of decay() to empty Fuel Cell 1.\nThis produced " << (test.assembly.at(0).rod.at(0).PowerOut() * j) / 1000 << " kilowatts.\n" << std::endl;
     // while (!test.assembly.empty()) {
     //     test.assembly.pop_back();
     // }
@@ -58,9 +66,11 @@ int main() {
         std::cout << "Worker will be ready in " << 900 - DiversityHire.cd << " loop iterations" << std::endl;
     }
     DiversityHire.cd = 900;
-    for (int i = 0; i < test.assembly[0].rod.size(); i++) {
-        test.assembly[0].rod.pop_back();
+    for (int i = 0; i <= test.assembly[0].get_osize(); i++) {
+        test.assembly[0].rod.erase(test.assembly[0].rod.begin() + i);
+        std::cout << "Pellets in fuel rod: " << test.assembly[0].rod.size() << std::endl;
     }
+    std::cout << "Fuel Cell has " << test.assembly[0].rod.size() << " pellets" << std::endl;
     DiversityHire.Remove_FuelCell(test);
     while (!test.assembly.empty()) {
         test.assembly.pop_back();

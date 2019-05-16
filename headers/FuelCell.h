@@ -10,9 +10,9 @@ class FuelCell {
         int get_osize() {
             return o_size;
         }
-        int decay(int dc, int chk) {         //Each pellet has a 10% chance to decay, removing it from the rod vector
-            int check = dc % 250;
-            if (check == chk) {
+        int decay(int dc) {         //Each pellet has a 10% chance to decay, removing it from the rod vector
+            int check = rand() % 20;
+            if (check == dc && this->rod.empty() != false) {
                 rod.pop_back();
             }
             return rod.at(0).PowerOut();    //Return Power Output
@@ -37,22 +37,21 @@ class FuelCell {
         }
         FuelCell() {
             o_size = 10;
-            rod = std::vector<Pellet>(10);
             for (int i = 0; i < 10; i++) {
                 rod.push_back(Pellet());
             }
         }
-        FuelCell(int num) {
+        FuelCell(int num, int pr) {
             if (num < 0) {
                 o_size = 10;
                 for (int i = 0; i < 10; i++) {
-                    rod.push_back(Pellet());
+                    rod.push_back(Pellet(pr));
                 }
             }
             else {
                 o_size = num;
                 for (int i = 0; i < num; i++) {
-                    rod.push_back(Pellet());
+                    rod.push_back(Pellet(pr));
                 }
             }
         }

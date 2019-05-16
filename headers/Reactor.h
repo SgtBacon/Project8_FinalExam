@@ -50,7 +50,7 @@ class Reactor {
         Reactor(int rods, int num, int pr) {
             pwr = pr;
             std::cout << "initializing fuel cell" << std::endl;
-            FuelCell fc = FuelCell(num);
+            FuelCell fc = FuelCell(num, pr);
             std::cout << "rods: " << rods << std::endl;
             assembly = std::vector<FuelCell>(rods);
             for (int i = 0; i < rods; i++) {
