@@ -19,9 +19,6 @@ void Worker::Add_FuelCell(Reactor& newReactor){         //A worker can add a fue
     newReactor.addCell(NewCell);
     std::cout << "added fuel cell" << std::endl;
 }
-void runCooldown(int cd) {
-    cd -= 1;
-}
 string Worker::getName(){
     return name;
 }

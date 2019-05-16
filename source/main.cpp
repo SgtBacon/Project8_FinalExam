@@ -47,6 +47,20 @@ int main() {
     // while (!test.assembly.empty()) {
     //     test.assembly.pop_back();
     // }
+    DiversityHire.cd = 0;
+    if (DiversityHire.cd == 900) {
+        std::cout << "Worker is ready" << std::endl;
+        DiversityHire.Remove_FuelCell(test);
+        DiversityHire.cd = 0;
+    }
+    else {
+        DiversityHire.cd += 1;
+        std::cout << "Worker will be ready in " << 900 - DiversityHire.cd << " loop iterations" << std::endl;
+    }
+    DiversityHire.cd = 900;
+    for (int i = 0; i < test.assembly[0].rod.size(); i++) {
+        test.assembly[0].rod.pop_back();
+    }
     DiversityHire.Remove_FuelCell(test);
     while (!test.assembly.empty()) {
         test.assembly.pop_back();
