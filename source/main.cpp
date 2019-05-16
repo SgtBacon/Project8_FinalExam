@@ -45,6 +45,8 @@ int main() {
     while (!test.assembly.empty()) {
         test.assembly.pop_back();
     }
+    DiversityHire.Add_FuelCell(test);
+    DiversityHire.Remove_FuelCell(test);
     std::cout << test.assembly.size() << std::endl;
     for (int h = 0; h < 60; h++) {
         test.Meltdown(test.assembly);

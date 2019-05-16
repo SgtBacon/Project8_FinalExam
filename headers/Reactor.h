@@ -63,9 +63,11 @@ class Reactor {
             for(int i = 0; i < newReactor.assembly.size(); i++){
                 if(newReactor.assembly.at(i).rod.empty()){
                     newReactor.assembly.pop_back();
+                    std::cout << "removed an empty cell" << std::endl;
                     break;
                     }
                 else {
+                    std::cout << "no empty cells" << std::endl;
                     return;
                     }
             }
