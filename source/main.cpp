@@ -37,17 +37,16 @@ int main() {
     test.assembly.push_back(FuelCell());
     std::cout << "Reactor has " << test.assembly.size() << " fuel cells." << std::endl;
     std::cout << "Power per pellet: " << test.assembly[0].rod.at(0).PowerOut() << std::endl;
-    for (int loop = 0; test.assembly[0].rod.empty() == false; loop++) {
+    while (true) {
         //std::cout << "Loop iteration # " << i << std::endl;
         if (test.assembly[0].rod.empty() == true) {
             std::cout << "Your reactor ran out of fuel" << std::endl;
             break;
         }
         else if (test.assembly[0].rod.size() > 0) {
-            //std::cout << "Calling decay()" << std::endl;
+            std::cout << "Calling decay()" << std::endl;
             test.assembly[0].decay(i);
         }
-        std::cout << test.assembly[0].rod.size() << " ";
         i++;
         j++;
         i = i % 20;
