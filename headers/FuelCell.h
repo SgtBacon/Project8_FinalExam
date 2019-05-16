@@ -10,9 +10,9 @@ class FuelCell {
         int get_osize() {
             return o_size;
         }
-        int decay(int dc) {         //Each pellet has a 10% chance to decay, removing it from the rod vector
+        int decay(int dc, int chk) {         //Each pellet has a 10% chance to decay, removing it from the rod vector
             int check = dc % 250;
-            if (check == 0) {
+            if (check == chk) {
                 rod.pop_back();
             }
             return rod.at(0).PowerOut();    //Return Power Output

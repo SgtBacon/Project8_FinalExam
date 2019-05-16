@@ -46,7 +46,7 @@ class Reactor {
             }
         }
         Reactor(int rods, int num, int pwr) {
-            for (int i = 0; i < rods; i++) {
+            for (int i = 0; i < rods - 1; i++) {
                 assembly.at(i) = FuelCell(num, pwr);
             }
         }
