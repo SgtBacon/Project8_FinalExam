@@ -39,20 +39,20 @@ class FuelCell {
             o_size = 10;
             rod = std::vector<Pellet>(10);
             for (int i = 0; i < 10; i++) {
-                rod.at(i) = Pellet();
+                rod.push_back(Pellet());
             }
         }
         FuelCell(int num) {
             if (num < 0) {
                 o_size = 10;
                 for (int i = 0; i < 10; i++) {
-                    rod.at(i) = Pellet();
+                    rod.push_back(Pellet());
                 }
             }
             else {
                 o_size = num;
                 for (int i = 0; i < num; i++) {
-                    rod.at(i) = Pellet();
+                    rod.push_back(Pellet());
                 }
             }
         }

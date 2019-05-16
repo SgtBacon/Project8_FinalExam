@@ -49,11 +49,15 @@ class Reactor {
         }
         Reactor(int rods, int num, int pr) {
             pwr = pr;
+            std::cout << "initializing fuel cell" << std::endl;
             FuelCell fc = FuelCell(num);
+            std::cout << "rods: " << rods << std::endl;
             assembly = std::vector<FuelCell>(rods);
             for (int i = 0; i < rods; i++) {
+                std::cout << "i: " << i << std::endl;
                 assembly.push_back(fc);
             }
+            std::cout << "done\n";
         }
         void removeCell(Reactor newReactor){
             for(int i = 0; i < newReactor.assembly.size(); i++){
