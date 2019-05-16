@@ -14,7 +14,7 @@ class Pellet {
         }
         Pellet(int pwr) {
             if (pwr < 0) {
-                Power = 45;
+                Power = 1000;
             }
             Power = pwr;
         }
