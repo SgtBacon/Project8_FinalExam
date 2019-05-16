@@ -11,11 +11,18 @@ class FuelCell {
             return o_size;
         }
         int decay(int dc) {         //Each pellet has a 10% chance to decay, removing it from the rod vector
-            int check = rand() % 20;
-            if (check == dc && this->rod.empty() != false) {
+            int check = rand() % 19;
+            std::cout << check << std::endl;
+            std::cout << dc << std::endl;
+            if (check == dc && this->rod.empty() == false) {
+                std::cout << "Calling pop_back()" << std::endl;
                 rod.pop_back();
             }
-            return rod.at(0).PowerOut();    //Return Power Output
+            std::cout << "The size of the rod is: " << this->rod.size() << std::endl;
+            if (this->rod.size() > 0)
+                return rod.at(0).PowerOut();    //Return Power Output
+            else
+                return 0;
         }
         bool operator<(FuelCell fc) {
             if (rod.size() > fc.rod.size())

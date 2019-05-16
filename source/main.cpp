@@ -44,7 +44,7 @@ int main() {
             break;
         }
         else if (test.assembly[0].rod.size() > 0) {
-            std::cout << "Calling decay()" << std::endl;
+            //std::cout << "Calling decay()" << std::endl;
             test.assembly[0].decay(i);
         }
         i++;
