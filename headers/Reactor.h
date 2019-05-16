@@ -7,7 +7,6 @@ class Reactor {
     private:
         int countdown = 60;
         double KW;
-        int pwr;
     public:
         std::vector<FuelCell> assembly;
         // std::vector<FuelCell> getAssembly() {
@@ -42,15 +41,13 @@ class Reactor {
         }
         Reactor() {
             assembly = std::vector<FuelCell>(5);
-            pwr = 1000;
             for (int i = 0; i < 5; i++) {
                 assembly.at(i) = FuelCell();
             }
         }
-        Reactor(int rods, int num, int pr) {
-            pwr = pr;
-            for (int i = 0; i < rods; i++) {
-                assembly.at(i) = FuelCell(num);
+        Reactor(int rods, int num, int pwr) {
+            for (int i = 0; i < rods - 1; i++) {
+                assembly.at(i) = FuelCell(num, pwr);
             }
         }
         void removeCell(Reactor newReactor){
@@ -63,12 +60,5 @@ class Reactor {
                     }
             }
         }
-    int PowerOutput(int fc){
-        int PowerOutput = fc * pwr;
-}
 
 };
-
-
-
-
