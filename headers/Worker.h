@@ -10,6 +10,7 @@ class Worker {      //A reactor must have workers to perform any action
 private:            
     string name;
     string jobTitle;
+    int cd;
 public:
     Worker();
     Worker(string n, string jobT);
