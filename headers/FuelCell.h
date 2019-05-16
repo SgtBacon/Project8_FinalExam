@@ -11,10 +11,11 @@ class FuelCell {
             return o_size;
         }
         int decay(int dc) {         //Each pellet has a 10% chance to decay, removing it from the rod vector
-            if (dc == 1 || dc == 20) {
+            int check = dc % 250;
+            if (dc == 0) {
                 rod.pop_back();
             }
-            return rod.at(rod.size() - 1).PowerOut();    //Return Power Output
+            return rod.at(0).PowerOut();    //Return Power Output
         }
         bool operator<(FuelCell fc) {
             if (rod.size() > fc.rod.size())
