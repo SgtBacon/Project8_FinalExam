@@ -44,7 +44,7 @@ class Reactor {
             assembly = std::vector<FuelCell>(5);
             pwr = 1000;
             for (int i = 0; i < 5; i++) {
-                assembly.at(i) = FuelCell();
+                assembly.push_back(FuelCell());
             }
         }
         Reactor(int rods, int num, int pr) {

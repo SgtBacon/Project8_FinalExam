@@ -17,7 +17,7 @@ public:
     string getName();
     void Remove_FuelCell(FuelCell FC, Reactor newReactor);
     void Add_FuelCell(Reactor& newReactor);
-
+    void runCooldown();
 
 };
 

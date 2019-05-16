@@ -17,7 +17,9 @@ void Worker::Remove_FuelCell(FuelCell FC, Reactor newReactor){      //A worker c
 void Worker::Add_FuelCell(Reactor& newReactor){         //A worker can add a fuel cell, creating one within the function, and then adding it to the vector of 
     FuelCell NewCell = FuelCell();
     newReactor.addCell(NewCell);
-
+}
+void runCooldown(int cd) {
+    cd -= 1;
 }
 string Worker::getName(){
     return name;

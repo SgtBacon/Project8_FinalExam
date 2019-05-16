@@ -35,7 +35,7 @@ int main() {
     test.assembly.push_back(FuelCell());
     std::cout << "Reactor has " << test.assembly.size() << " fuel cells." << std::endl;
     for (int loop = 0; loop < (test.assembly.at(0).get_osize() * 250) - 1; loop++) {
-        std::cout << "Loop iteration # " << i << std::endl;
+        //std::cout << "Loop iteration # " << i << std::endl;
         if (test.assembly.at(0).rod.empty() == true)
             std::cout << "Your reactor ran out of fuel" << std::endl;
         test.assembly.at(0).decay(i, 0);
