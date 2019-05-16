@@ -12,7 +12,7 @@ class FuelCell {
         }
         int decay(int dc) {         //Each pellet has a 10% chance to decay, removing it from the rod vector
             int check = dc % 250;
-            if (dc == 0) {
+            if (check == 0) {
                 rod.pop_back();
             }
             return rod.at(0).PowerOut();    //Return Power Output
