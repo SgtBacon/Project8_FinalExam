@@ -19,22 +19,32 @@ class Reactor {
         }
         void Explode(int cd) {             //Worst outcome, blast radius in a certain radius based on Power of a Reactor Pellet
             if (cd == 0) {
-                std::cout << "Your Reactor exploded. That was loud.\nDays since last accident: 0\nMassive destruction in a " << 0 << " mile radius." << std::endl;
+                double blast = blast_radius();
+                std::cout << "Your Reactor exploded. That was loud.\nDays since last accident: 0\nMassive destruction in a " << blast << " mile radius." << std::endl;
+                blast = blast * blast * 3.14;
+                std::cout << "That covers " << blast << " square miles" << std::endl;
             }
         }
         double blast_radius() {
             double radius;
             double pi = 3.14;
-            //
+            std::cout << "Radius calculation 1" << std::endl;
+            radius = assembly[0].rod[0].PowerOut();
+            std::cout << "Radius 1 = " << radius << "\nRadius calculation 2" << std::endl;
+            radius = radius * assembly.size();
+            std::cout << "Radius 2 = " << radius << std::endl;
             return radius;
         }
         void Meltdown(std::vector<FuelCell> asmbly) {
             if (asmbly.empty()) {
                 countdown--;
+                std::cout << "Counting down: " << countdown << std::endl;
             }
             else {
                 countdown = 60;
+                std::cout << "Reactor stabilized" << std::endl;
             }
+            std::cout << "Calling explode()" << std::endl;
             Explode(get_cd());
         }
         void addCell(FuelCell fc) {

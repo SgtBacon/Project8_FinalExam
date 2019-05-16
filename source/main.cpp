@@ -47,6 +47,7 @@ int main() {
             //std::cout << "Calling decay()" << std::endl;
             test.assembly[0].decay(i);
         }
+        std::cout << test.assembly[0].rod.size() << " ";
         i++;
         j++;
         i = i % 20;
@@ -77,6 +78,7 @@ int main() {
     }
     std::cout << test.assembly.size() << std::endl;
     for (int h = 0; h < 60; h++) {
+        std::cout << "Reactor meltdown check" << std::endl;
         test.Meltdown(test.assembly);
     }
 
