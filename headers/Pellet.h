@@ -6,16 +6,13 @@ class Pellet {
         int Power;  //Measured in Watt. Reactor produces Kilowatt/Hours = (Watts * Hours)/1000
                     //Also used to determine size of reactor explosion
     public:
-        int PowerOut() {
+        int PowerOut() {    //Getter to return the Power within each Pellet
             return Power;
         }
-        Pellet() {
-            Power = 1000;
+        Pellet() {  //base constructor
+            Power = 1000;   
         }
-        Pellet(int pwr) {
-            // if (pwr < 0) {
-            //     Power = 1000;
-            // }
+        Pellet(int pwr) { //base constructor
             Power = pwr;
         }
 };
