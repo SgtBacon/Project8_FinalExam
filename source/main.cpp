@@ -36,11 +36,11 @@ int main() {
     std::cout << "Reactor has " << test.assembly.size() << " fuel cells." << std::endl;
     for (int loop = 0; loop < (test.assembly.at(0).get_osize() * 250) - 1; loop++) {
         //std::cout << "Loop iteration # " << i << std::endl;
-        if (test.assembly[i].rod.empty() == true) {
+        if (test.assembly[0].rod.empty() == true) {
             std::cout << "Your reactor ran out of fuel" << std::endl;
             break;
         }
-        test.assembly.at(0).decay(i, 0);
+        test.assembly[0].decay(i, 0);
         i++;
     }
     std::cout << "It took " << i << " calls of decay() to empty Fuel Cell 1.\nThis produced " << (test.assembly.at(0).rod.at(0).PowerOut() * i) / 1000 << " kilowatts.\n" << std::endl;
