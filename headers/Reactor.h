@@ -62,7 +62,7 @@ class Reactor {
         void removeCell(Reactor newReactor){
             for(int i = 0; i < newReactor.assembly.size(); i++){
                 if(newReactor.assembly.at(i).rod.empty()){
-                    newReactor.assembly.pop_back();
+                    newReactor.assembly.erase(assembly.begin() + i - 1);
                     std::cout << "removed an empty cell" << std::endl;
                     break;
                     }
