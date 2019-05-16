@@ -49,12 +49,14 @@ class Reactor {
         }
         Reactor(int rods, int num, int pr) {
             pwr = pr;
-            for (int i = 0; i < rods - 1; i++) {
-                assembly.at(i) = FuelCell(num);
+            FuelCell fc = FuelCell(num);
+            assembly = std::vector<FuelCell>(rods);
+            for (int i = 0; i < rods; i++) {
+                assembly.push_back(fc);
             }
         }
         void removeCell(Reactor newReactor){
-            for(int i=0; i < newReactor.assembly.size(); i++){
+            for(int i = 0; i < newReactor.assembly.size(); i++){
                 if(newReactor.assembly.at(i).rod.empty()){
                     newReactor.assembly.pop_back();
                     }
