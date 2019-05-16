@@ -8,6 +8,7 @@ class Reactor {
         int countdown = 60;
         double KW;
         int pwr;
+        int o_size;
     public:
         std::vector<FuelCell> assembly;
         // std::vector<FuelCell> getAssembly() {
@@ -20,19 +21,19 @@ class Reactor {
         void Explode(int cd) {             //Worst outcome, blast radius in a certain radius based on Power of a Reactor Pellet
             if (cd == 0) {
                 double blast = blast_radius();
-                std::cout << "Your Reactor exploded. That was loud.\nDays since last accident: 0\nMassive destruction in a " << blast << " mile radius." << std::endl;
-                blast = blast * blast * 3.14;
-                std::cout << "That covers " << blast << " square miles" << std::endl;
+                std::cout << "Your Reactor exploded. That was loud.\nDays since last accident: 0\nMassive destruction in a " << (double)blast << " mile radius." << std::endl;
+                blast = blast_radius() * blast_radius() * 3.14;
+                std::cout << "That covers " << (double)blast << " square miles" << std::endl;
             }
         }
         double blast_radius() {
             double radius;
             double pi = 3.14;
-            std::cout << "Radius calculation 1" << std::endl;
-            radius = assembly[0].rod[0].PowerOut();
-            std::cout << "Radius 1 = " << radius << "\nRadius calculation 2" << std::endl;
-            radius = radius * assembly.size();
-            std::cout << "Radius 2 = " << radius << std::endl;
+            //std::cout << "Radius calculation 1" << std::endl;
+            radius = assembly[0].rod[0].PowerOut() / 700;
+            //std::cout << "Radius 1 = " << radius << "\nRadius calculation 2" << std::endl;
+            radius = radius * o_size;
+            //std::cout << "Radius 2 = " << radius << std::endl;
             return radius;
         }
         void Meltdown(std::vector<FuelCell> asmbly) {
@@ -44,13 +45,14 @@ class Reactor {
                 countdown = 60;
                 std::cout << "Reactor stabilized" << std::endl;
             }
-            std::cout << "Calling explode()" << std::endl;
+            //std::cout << "Calling explode()" << std::endl;
             Explode(get_cd());
         }
         void addCell(FuelCell fc) {
             assembly.push_back(fc);
         }
         Reactor() {
+            o_size = 5;
             assembly = std::vector<FuelCell>(5);
             pwr = 1000;
             for (int i = 0; i < 5; i++) {
@@ -59,19 +61,20 @@ class Reactor {
         }
         Reactor(int rods, int num, int pr) {
             pwr = pr;
-            std::cout << "initializing fuel cell" << std::endl;
+            o_size = rods;
+            //std::cout << "initializing fuel cell" << std::endl;
             FuelCell fc = FuelCell(num, pr);
-            std::cout << "rods: " << rods << std::endl;
+            //std::cout << "rods: " << rods << std::endl;
             assembly = std::vector<FuelCell>(rods);
             for (int i = 0; i < rods; i++) {
-                std::cout << "i: " << i << std::endl;
+                //std::cout << "i: " << i << std::endl;
                 assembly.push_back(fc);
             }
-            std::cout << "done\n";
+            //std::cout << "done\n";
         }
         void removeCell(Reactor newReactor){
             for(int i = 0; i < newReactor.assembly[0].get_osize(); i++){
-                std::cout << "Entered loop" << std::endl;
+                //std::cout << "Entered loop" << std::endl;
                 if(newReactor.assembly[i].rod.empty()){
                     //newReactor.assembly.erase(assembly.begin() + i);
                     std::vector<Pellet> temp = std::vector<Pellet>(newReactor.assembly[i].rod.size());
