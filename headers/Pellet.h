@@ -10,7 +10,7 @@ class Pellet {
             return Power;
         }
         Pellet() {
-            Power = 45;
+            Power = 1000;
         }
         Pellet(int pwr) {
             if (pwr < 0) {
